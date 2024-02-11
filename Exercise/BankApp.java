@@ -28,10 +28,11 @@ public class BankApp {
                 System.out.println("Invalid account name or pin. Please try again.");
             }
         }
+        
+        SavingsAccount savingsAccount = new SavingsAccount(accountName, 0);
+        CheckingAccount checkingAccount = new CheckingAccount(accountName, 0, 1000);
 
         while (isRunning) {
-            SavingsAccount savingsAccount = new SavingsAccount(accountName, 0);
-            CheckingAccount checkingAccount = new CheckingAccount(accountName, 0, 1000);
 
             int accountType = 0;
             boolean isAccountTypeSelected = false;
@@ -55,7 +56,7 @@ public class BankApp {
                 System.out.println("4. Change Account Type");
                 System.out.println("5. Exit");
             
-                System.out.print("Enter your choice (1-4): ");
+                System.out.print("Enter your choice (1-5): ");
                 int choice = input.nextInt();
 
                 switch (choice) {

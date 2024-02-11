@@ -85,8 +85,8 @@ public class BankApp {
                                     savingsAccount.setWithdraw(money);
                                 } else if (accountType == 2) {
                                     checkingAccount.setWithdraw(money);
-                                    isWithdrawValid = false;
-                                }
+                                  }
+                                  isWithdrawValid = false;
                             } else {
                                 System.out.println("Minimum withdraw amount is wrong. Please try again.");
                             }

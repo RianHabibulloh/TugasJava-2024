@@ -12,9 +12,12 @@ public class BankApp {
 
         String accountName = "";
         String pin = "";
-        boolean isRunning = false;
 
-        while (!isRunning) {
+        while (true){
+
+          boolean isRunning = false;
+          
+          while (!isRunning) {
             System.out.println("Welcome to the bank!");
             System.out.print("Enter account name: ");
             accountName = input.nextLine();
@@ -37,8 +40,7 @@ public class BankApp {
             int accountType = 0;
             boolean isAccountTypeSelected = false;
             boolean exit = false;
-            boolean isValidateExit = false;
-            while (!isAccountTypeSelected && !isValidateExit) {
+            while (!isAccountTypeSelected) {
                 System.out.print("Select account type (1.savings or 2.checking): ");
                 accountType = input.nextInt();
                 if (accountType == 1 || accountType == 2) {
@@ -49,7 +51,7 @@ public class BankApp {
             }
 
 
-            while (!exit && isAccountTypeSelected && !isValidateExit) {
+            while (!exit && isAccountTypeSelected) {
                 System.out.println("\nMenu");
                 System.out.println("1. Deposit");
                 System.out.println("2. Withdraw");
@@ -69,7 +71,7 @@ public class BankApp {
                             if (money >= 200) {
                                 if (accountType == 1) {
                                     savingsAccount.setDeposit(money);
-                                } else if (accountType == 2) {
+                                  } else if (accountType == 2) {
                                     checkingAccount.setDeposit(money);
                                 }
                                 isDepositValid = false;
@@ -107,13 +109,13 @@ public class BankApp {
                         break;
 
                     case 5:
-                        exit = true;
-                        isValidateExit = true;
+                        isRunning = false;
                         break;
                     default:
                         break;
                 }
             }
+          }
         }
     }
-}
+  }

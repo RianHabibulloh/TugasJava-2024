@@ -35,7 +35,8 @@ public class BankApp {
 
             int accountType = 0;
             boolean isAccountTypeSelected = false;
-            while (!isAccountTypeSelected) {
+            boolean exit = false;
+            while (!isAccountTypeSelected && !exit) {
                 System.out.print("Select account type (1.savings or 2.checking): ");
                 accountType = input.nextInt();
                 if (accountType == 1 || accountType == 2) {
@@ -45,14 +46,14 @@ public class BankApp {
                 }
             }
 
-            boolean exit = false;
 
             while (!exit && isAccountTypeSelected) {
                 System.out.println("\nMenu");
                 System.out.println("1. Deposit");
                 System.out.println("2. Withdraw");
                 System.out.println("3. Check balance");
-                System.out.println("4. Exit");
+                System.out.println("4. Change Account Type");
+                System.out.println("5. Exit");
             
                 System.out.print("Enter your choice (1-4): ");
                 int choice = input.nextInt();
@@ -101,6 +102,11 @@ public class BankApp {
                         break;
                     case 4:
                         exit = true;
+                        break;
+
+                    case 5:
+                        exit = true;
+                        isAccountTypeSelected = true;
                         break;
                     default:
                         break;

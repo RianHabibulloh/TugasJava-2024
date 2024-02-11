@@ -11,7 +11,7 @@ public class SavingsAccount extends BankAccount {
     @Override
     public void setWithdraw(double money) {
         if (balance - money >= minimumBalance) {
-            super.setWithdraw(money);
+            balance -= money;
             System.out.println("Withdraw is success");
             System.out.println("Your balance is now " + getBalance());
         } else {

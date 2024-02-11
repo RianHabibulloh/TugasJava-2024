@@ -28,7 +28,7 @@ public class BankApp {
                 System.out.println("Invalid account name or pin. Please try again.");
             }
         }
-        
+
         SavingsAccount savingsAccount = new SavingsAccount(accountName, 0);
         CheckingAccount checkingAccount = new CheckingAccount(accountName, 0, 1000);
 
@@ -37,7 +37,8 @@ public class BankApp {
             int accountType = 0;
             boolean isAccountTypeSelected = false;
             boolean exit = false;
-            while (!isAccountTypeSelected && !exit) {
+            boolean isValidateExit = false;
+            while (!isAccountTypeSelected && !isValidateExit) {
                 System.out.print("Select account type (1.savings or 2.checking): ");
                 accountType = input.nextInt();
                 if (accountType == 1 || accountType == 2) {
@@ -48,7 +49,7 @@ public class BankApp {
             }
 
 
-            while (!exit && isAccountTypeSelected) {
+            while (!exit && isAccountTypeSelected && !isValidateExit) {
                 System.out.println("\nMenu");
                 System.out.println("1. Deposit");
                 System.out.println("2. Withdraw");
@@ -107,7 +108,7 @@ public class BankApp {
 
                     case 5:
                         exit = true;
-                        isAccountTypeSelected = true;
+                        isValidateExit = true;
                         break;
                     default:
                         break;
